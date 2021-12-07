@@ -14,12 +14,12 @@ if Mix.env() == :dev do
         tasks: [
           {:cmd, "mix format --check-formatted"}
         ]
-      ]
-    ],
-    pre_push: [
-      tasks: [
-        {:cmd, "mix dialyzer"},
-        {:cmd, "mix test --color"}
+      ],
+      pre_push: [
+        tasks: [
+          {:cmd, "mix dialyzer"},
+          {:cmd, "mix test --color"}
+        ]
       ]
     ]
 end
