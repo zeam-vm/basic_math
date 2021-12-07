@@ -17,7 +17,6 @@ if Mix.env() == :dev do
       ]
     ],
     pre_push: [
-      verbose: false,
       tasks: [
         {:cmd, "mix dialyzer"},
         {:cmd, "mix test --color"}
