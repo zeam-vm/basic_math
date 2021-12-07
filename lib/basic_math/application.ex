@@ -7,6 +7,8 @@ defmodule BasicMath.Application do
 
   @impl true
   def start(_type, _args) do
+    BasicMath.Factorial.FactorialEts.init()
+
     children = [
       # Starts a worker by calling: BasicMath.Worker.start_link(arg)
       # {BasicMath.Worker, arg}
