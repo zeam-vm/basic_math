@@ -26,40 +26,57 @@ end
 
 `BasicMath.factorial/1` adopts the cache strategy by ETS.
 
-`bench/factorial_bench.exs`:
+The results of `bench/factorial_bench.exs`:
 
 ```
-Name                                     ips        average  deviation         median         99th %
-FactorialEts.factorial(0)            11.23 M       89.02 ns   ±325.72%           0 ns        1000 ns
-FactorialBasic.factorial(0)          11.06 M       90.43 ns   ±324.27%           0 ns        1000 ns
-FactorialEts.factorial(10)            7.13 M      140.34 ns ±13603.43%           0 ns        1000 ns
-FactorialEts.factorial(100)           5.66 M      176.78 ns ±12435.88%           0 ns        1000 ns
-FactorialEts.factorial(1000)          4.93 M      202.66 ns ±15233.90%           0 ns        1000 ns
-FactorialBasic.factorial(10)          3.61 M      277.39 ns ±12350.84%           0 ns        1000 ns
-FactorialBasic.factorial(100)         0.21 M     4666.00 ns   ±109.24%        4000 ns        9000 ns
-FactorialBasic.factorial(1000)     0.00243 M   412119.42 ns     ±4.10%      407000 ns      495000 ns
+##### With input 10 #####
+Name                     ips        average  deviation         median         99th %
+FactorialEts          5.65 M      176.85 ns  ±6310.57%           0 ns         980 ns
+FactorialBasic        3.70 M      270.35 ns  ±9247.89%           0 ns         980 ns
 
 Comparison: 
-FactorialEts.factorial(0)            11.23 M
-FactorialBasic.factorial(0)          11.06 M - 1.02x slower +1.42 ns
-FactorialEts.factorial(10)            7.13 M - 1.58x slower +51.32 ns
-FactorialEts.factorial(100)           5.66 M - 1.99x slower +87.76 ns
-FactorialEts.factorial(1000)          4.93 M - 2.28x slower +113.65 ns
-FactorialBasic.factorial(10)          3.61 M - 3.12x slower +188.37 ns
-FactorialBasic.factorial(100)         0.21 M - 52.42x slower +4576.99 ns
-FactorialBasic.factorial(1000)     0.00243 M - 4629.72x slower +412030.41 ns
+FactorialEts          5.65 M
+FactorialBasic        3.70 M - 1.53x slower +93.50 ns
 
 Memory usage statistics:
 
-Name                              Memory usage
-FactorialEts.factorial(0)                  0 B
-FactorialBasic.factorial(0)                0 B - 1.00x memory usage +0 B
-FactorialEts.factorial(10)                40 B - ∞ x memory usage +40 B
-FactorialEts.factorial(100)              120 B - ∞ x memory usage +120 B
-FactorialEts.factorial(1000)            1120 B - ∞ x memory usage +1120 B
-FactorialBasic.factorial(10)               0 B - 1.00x memory usage +0 B
-FactorialBasic.factorial(100)              0 B - 1.00x memory usage +0 B
-FactorialBasic.factorial(1000)             0 B - 1.00x memory usage +0 B
+Name              Memory usage
+FactorialEts              40 B
+FactorialBasic             0 B - 0.00x memory usage -40 B
+
+**All measurements for memory usage were the same**
+
+##### With input 100 #####
+Name                     ips        average  deviation         median         99th %
+FactorialEts          4.20 M        0.24 μs  ±3636.30%           0 μs        0.98 μs
+FactorialBasic        0.22 M        4.56 μs    ±62.00%        3.98 μs        9.98 μs
+
+Comparison: 
+FactorialEts          4.20 M
+FactorialBasic        0.22 M - 19.15x slower +4.33 μs
+
+Memory usage statistics:
+
+Name              Memory usage
+FactorialEts             120 B
+FactorialBasic             0 B - 0.00x memory usage -120 B
+
+**All measurements for memory usage were the same**
+
+##### With input 1000 #####
+Name                     ips        average  deviation         median         99th %
+FactorialEts          5.44 M       0.184 μs ±11337.84%           0 μs        0.98 μs
+FactorialBasic     0.00242 M      413.15 μs     ±3.59%      407.98 μs      468.98 μs
+
+Comparison: 
+FactorialEts          5.44 M
+FactorialBasic     0.00242 M - 2247.01x slower +412.97 μs
+
+Memory usage statistics:
+
+Name              Memory usage
+FactorialEts           1.09 KB
+FactorialBasic            0 KB - 0.00x memory usage -1.09375 KB
 ```
 
 ## License
