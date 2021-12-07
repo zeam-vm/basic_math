@@ -1,3 +1,4 @@
+# `import Config` instead of `use Mix.Config` when Elixir 1.9+
 use Mix.Config
 
 if Mix.env() == :dev do
