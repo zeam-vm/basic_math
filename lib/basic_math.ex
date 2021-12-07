@@ -1,5 +1,5 @@
 defmodule BasicMath do
   @moduledoc """
-  Documentation for `BasicMath`.
+  BasicMath provides faster basic mathematic functions, including factorial.
   """
 end
